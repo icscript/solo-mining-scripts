@@ -4,13 +4,7 @@ services:
    image: ${NODE_IMAGE}
    container_name: phala-node
    hostname: phala-node
-   ports:
-    - "9933:9933"
-    - "9934:9934"
-    - "9944:9944"
-    - "9945:9945"
-    - "30333:30333"
-    - "30334:30334"
+   network_mode: host
    environment:
     - NODE_NAME=${NODE_NAME}
     - NODE_ROLE=MINER
@@ -23,8 +17,7 @@ services:
    image: ${PRUNTIME_IMAGE}
    container_name: phala-pruntime
    hostname: phala-pruntime
-   ports:
-    - "8000:8000"
+   network_mode: host
    devices:
 
    environment:
@@ -37,6 +30,7 @@ services:
    image: ${PHERRY_IMAGE}
    container_name: phala-pherry
    hostname: phala-pherry
+   network_mode: host
    depends_on:
     - phala-node
     - phala-pruntime
