@@ -30,7 +30,6 @@ services:
    image: ${PHERRY_IMAGE}
    container_name: phala-pherry
    hostname: phala-pherry
-   network_mode: host
    depends_on:
     - phala-node
     - phala-pruntime
